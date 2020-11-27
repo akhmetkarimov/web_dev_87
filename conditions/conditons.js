@@ -114,15 +114,15 @@ let result = evenOdd % 2 == 0 ? 'Even Ternar' : 'Odd Ternar'
 
 console.log(result)
 
-let num1 = 24
-let num2 = 13
+let num1 = 15
+let num2 = 12
 
 let condition = num1 % num2 == 0
 
 if (condition) {
     console.log('Div')
 } else {
-    console.log('Not Div')
+    console.log('Not Div', num1 % num2)
 }
 
 // let name = prompt('Enter your Name')
@@ -136,3 +136,4 @@ if (condition) {
 // let n2 = Number(prompt('Enter number 2'))
 
 // console.log(n1 + n2)
+
