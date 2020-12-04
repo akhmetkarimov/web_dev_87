@@ -10,15 +10,15 @@
 // +, -, *, /, % - Мат операторы
 // ==, >, <, >=, <=, !=, ===, !==
 
-if (10 == 20) {
-    console.log('10 == 10')
-} else if (2 < 1) {
-    console.log('2 > 1')
-} else if (2 > 1) {
-    console.log('2 > 1 Second')
-} else {
-    console.log('ELSE')
-}
+// if (10 == 20) {
+//     console.log('10 == 10')
+// } else if (2 < 1) {
+//     console.log('2 > 1')
+// } else if (2 > 1) {
+//     console.log('2 > 1 Second')
+// } else {
+//     console.log('ELSE')
+// }
 
 // let num1 = 80
 // let num2 = 80
@@ -33,30 +33,30 @@ if (10 == 20) {
 
 
 
-let vibe = true
+// let vibe = true
 
-if (vibe) {
-    console.log('Mac Book Pro 2020')
-} else {
-    console.log('Nothing')
-}
+// if (vibe) {
+//     console.log('Mac Book Pro 2020')
+// } else {
+//     console.log('Nothing')
+// }
 
-// && - AND, || - OR
+// // && - AND, || - OR
 
-// true && true | 10 == 10 && 20 > 5
-// true || false | 5 > 2 || 1 > 20
+// // true && true | 10 == 10 && 20 > 5
+// // true || false | 5 > 2 || 1 > 20
 
-if (10 == 10 && 20 < 5) {
-    console.log('IF AND')
-} else {
-    console.log('ELSE AND')
-}
+// if (10 == 10 && 20 < 5) {
+//     console.log('IF AND')
+// } else {
+//     console.log('ELSE AND')
+// }
 
-if (5 < 2 || 1 > 20) {
-    console.log('IF OR')
-} else {
-    console.log('ELSE OR')
-}
+// if (5 < 2 || 1 > 20) {
+//     console.log('IF OR')
+// } else {
+//     console.log('ELSE OR')
+// }
 
 
 // let num1 = 80
@@ -102,28 +102,28 @@ if (5 < 2 || 1 > 20) {
 //     console.log("Значения равны")
 // }
 
-let evenOdd = 12
+// let evenOdd = 12
 
-if (evenOdd % 2 == 0) {
-    console.log('Even')
-} else {
-    console.log('Odd')
-}
+// if (evenOdd % 2 == 0) {
+//     console.log('Even')
+// } else {
+//     console.log('Odd')
+// }
 
-let result = evenOdd % 2 == 0 ? 'Even Ternar' : 'Odd Ternar'
+// let result = evenOdd % 2 == 0 ? 'Even Ternar' : 'Odd Ternar'
 
-console.log(result)
+// console.log(result)
 
-let num1 = 15
-let num2 = 12
+// let num1 = 15
+// let num2 = 12
 
-let condition = num1 % num2 == 0
+// let condition = num1 % num2 == 0
 
-if (condition) {
-    console.log('Div')
-} else {
-    console.log('Not Div', num1 % num2)
-}
+// if (condition) {
+//     console.log('Div')
+// } else {
+//     console.log('Not Div', num1 % num2)
+// }
 
 // let name = prompt('Enter your Name')
 
@@ -137,3 +137,25 @@ if (condition) {
 
 // console.log(n1 + n2)
 
+
+
+let year = Number(prompt("Enter year: "))
+
+// if (year % 4 != 0) {
+//     console.log(365)
+// } else {
+//     if (year % 100 != 0) {
+//         console.log(366)
+//     } else {
+//         if (year % 400 != 0) {
+//             console.log(365)
+//         }
+//     }
+// }
+
+
+if (year % 4 == 0 || year % 400 == 0 && year % 100 != 0) {
+    console.log(366)
+} else {
+    console.log(365)
+}
