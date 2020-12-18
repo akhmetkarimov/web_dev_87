@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Css</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+    <!-- 
+        inline - attribute style
+        internal - tag style
+        external - file .css
+
+        inline:
+        property: value; property: value; property: value; property: value;
+
+        internal, external:
+        selector {
+            property: value;
+            property: value;
+            property: value;
+            ....
+        }
+
+     -->
+
+      <!-- Inline -->
+     <h1 style="color: red;">Heading</h1>
+
+     <h1 class="simple">Heading</h1>
+     <h1>Heading</h1>
+     <h1>Heading</h1>
+     <h1 class="simple">Heading</h1>
+     <h1>Heading</h1>
+     
+     
+     <!-- class, id -->
+
+     <p class="simple">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam animi, velit sed provident doloribus cupiditate iure officia qui delectus! Veniam exercitationem necessitatibus porro mollitia sapiente? Minus obcaecati repellat laborum rerum?</p>     
+     <p class="simple">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam animi, velit sed provident doloribus cupiditate iure officia qui delectus! Veniam exercitationem necessitatibus porro mollitia sapiente? Minus obcaecati repellat laborum rerum?</p>     
+     <p class="simple">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam animi, velit sed provident doloribus cupiditate iure officia qui delectus! Veniam exercitationem necessitatibus porro mollitia sapiente? Minus obcaecati repellat laborum rerum?</p>     
+     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam animi, velit sed provident doloribus cupiditate iure officia qui delectus! Veniam exercitationem necessitatibus porro mollitia sapiente? Minus obcaecati repellat laborum rerum?</p>     
+     <p id="test">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam animi, velit sed provident doloribus cupiditate iure officia qui delectus! Veniam exercitationem necessitatibus porro mollitia sapiente? Minus obcaecati repellat laborum rerum?</p>     
+     <p class="empty">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam animi, velit sed provident doloribus cupiditate iure officia qui delectus! Veniam exercitationem necessitatibus porro mollitia sapiente? Minus obcaecati repellat laborum rerum?</p>     
+     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam animi, velit sed provident doloribus cupiditate iure officia qui delectus! Veniam exercitationem necessitatibus porro mollitia sapiente? Minus obcaecati repellat laborum rerum?</p>     
+
+
+     <h3><span class="r">R</span>ainbow</h3>
+
+     <!-- Internal -->
+     <style>
+
+        h1 {
+            color: orange;
+            text-align: center;
+        }
+
+        h1 {
+            color: lime;
+        }
+
+        h1 {
+            color: blue;
+        }
+
+        p {
+            color: lightgreen;
+            text-align: center;
+        }
+
+        /* 
+            .className - class selector 
+            #idName - id selector
+        */
+
+        .simple, .empty {
+            text-transform: uppercase;
+            color: green;
+            text-align: left
+        }
+
+        .empty {
+            color: aqua;
+        }
+
+        #test {
+            text-align: right;
+            color: pink;
+        }
+        
+        .r {
+            color: red;
+        }
+
+     </style>
+
+
+
+     <div class="red">
+
+     </div>
+
+
+     <div class="orange">
+
+     </div>
+
+
+
+     <div class="flex-parent">
+
+        <div class="flex-child">
+
+        </div>
+        <div class="flex-child second">
+
+        </div>
+        <div class="flex-child">
+
+        </div>
+        <div class="flex-child">
+
+        </div>
+
+     </div>
+
+
+     <div class="box">
+
+     </div>
+
+</body>
+</html>
