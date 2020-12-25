@@ -40,3 +40,37 @@
     justify-content: space-between;
     flex-wrap: wrap;
 }
+
+
+.section-padding {
+    padding-top: 90px;
+    padding-bottom: 90px;
+}
+
+.section-top {
+    text-align: center;
+    line-height: 1.5;
+    margin-bottom: 60px;
+}
+
+.section-top h3 {
+    font-size: 54px;
+}
+
+.section-top p {
+    width: 75%;
+    margin: auto;
+    color: #777;
+    font-size: 20px;
+}
+
+.template-item {
+    width: calc(100% / 3 - 3%);
+    text-align: center;
+
+    margin-bottom: 60px;
+}
+
+.section-top.white, .section-top.white p{
+    color: #fff;
+}

@@ -1,0 +1,181 @@
+.about-item {
+    background-color: #6d70c6;
+    color: #fff;
+    padding: 80px 0;
+
+    position: relative;
+    z-index: 4;
+
+    overflow: hidden;
+}
+
+.about-item i {
+    font-size: 40px;
+}
+
+.about-item h3 {
+    font-weight: bold;
+    font-size: 20px;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+.about-item p {
+    width: 60%;
+    margin: auto;
+    font-size: 18px;
+    font-weight: 200;
+}
+
+.bg-icon {
+    font-size: 40px;
+    opacity: .3;
+
+    position: absolute;
+    top: 70%;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+
+    transform: scale(3);
+}
+
+
+.about-block {
+    width: calc(100% / 2 - 3%);
+}
+
+.about-bg {
+    background-image: url('../../images/backgrounds/about.jpg');
+    background-size: cover;
+    height: 600px;
+}
+
+.about-block h3 {
+    font-size: 54px;
+    font-weight: bold;
+}
+
+.about-block p {
+    line-height: 1.5;
+    color: #777;
+    font-size: 18px;
+
+    margin-top: 50px;
+    margin-bottom: 60px;
+}
+
+.progess-text {
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.progess-text p{
+    font-size: 16px;
+    font-weight: bold;
+    color: #000;
+    margin: 0;
+}
+
+.progress-container {
+    width: 100%;
+    height: 18px;
+    background-color: #ccc;
+    margin-top: 20px;
+}
+
+.progress-line {
+    background-color: #6d70c6;
+    width: 90%;
+    height: 18px;
+}
+
+.ninety-five {
+    width: 95%;
+}
+
+.eigthy {
+    width: 80%;
+}
+
+.progresses {
+    margin-bottom: 30px;
+}
+
+
+
+.main-features {
+    background-image: url('../../images/backgrounds/feature-bg.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+
+    position: relative;
+    z-index: 4;
+}
+
+.main-features::after {
+    content: "";
+
+    background-color: rgba(0,0,0,.7);
+
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+}
+
+.feature-item {
+    background-color: #fff;
+    border-radius: 3px;
+    line-height: 1.5;
+
+    padding-top: 50px;
+    padding-bottom: 30px;
+
+    position: relative;
+}
+
+.feature-item h3 {
+    color: #000;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.feature-item p {
+    color: #777;
+    font-weight: 200;
+    width: 85%;
+    margin: auto;
+    font-size: 18px;
+}
+
+.feature-icon {
+    background-color: #6d70c6;
+    color: #fff;
+
+    position: absolute;
+
+    top: -30px;
+
+    width: 60px;
+    height: 60px;
+
+    right: 0;
+    left: 0;
+
+    margin: auto;
+
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.feature-icon i {
+    font-size: 30px;
+}
