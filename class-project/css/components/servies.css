@@ -1,0 +1,62 @@
+.template-item.service-item {
+    width: calc(100% / 3 - 10%);
+    text-align: left;
+
+    line-height: 1.5;
+
+    border: 1px solid #ccc;
+    border-radius: 5px;
+
+    padding: 10% 4% 6% 4%;
+
+    position: relative;
+}
+
+.service-item h3 {
+    font-size: 22px;
+    font-weight: 600;
+}
+
+.service-item p {
+    color: #777;
+    margin-bottom: 20px;
+}
+
+.service-item a {
+    font-size: 14px;
+    font-weight: bold;
+    color: #000;
+}
+
+.bookmark {
+    font-family: 'Raleway', sans-serif;
+
+    background-color: #6d70c6;
+
+    position: absolute;
+    top: 0;
+    height: 100px;
+    width: 70px;
+
+
+    font-size: 48px;
+    font-weight: 500;
+
+    color: #fff;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    /* border-bottom: 25px solid red; */
+    /* border-radius: 0 0 55px 0; */
+    /* clip-path: polygon(
+                    100% 0,
+                    100% 38%,
+                    65% 100%,
+                    0 100%,
+                    0 0
+                    ); */
+
+    clip-path: polygon(0 0, 100% 0, 100% 70%, 0 100%);
+}

@@ -137,6 +137,10 @@
     padding-bottom: 30px;
 
     position: relative;
+
+    z-index: 4;
+
+    /* overflow: hidden; */
 }
 
 .feature-item h3 {
@@ -153,7 +157,7 @@
     font-size: 18px;
 }
 
-.feature-icon {
+.feature-icon, .process-icon{
     background-color: #6d70c6;
     color: #fff;
 
@@ -167,6 +171,8 @@
     right: 0;
     left: 0;
 
+    z-index: 1;
+
     margin: auto;
 
     border-radius: 50%;
@@ -178,4 +184,130 @@
 
 .feature-icon i {
     font-size: 30px;
+}
+
+.feature-item::after {
+    content: "";
+    background-color: rgba(0,0,0,.7);
+
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    /* width: 0; */
+    opacity: 0;
+    
+    transition: .4s;
+
+    transform: scale(0);
+    /* transform: skew(-45deg) scale(2); */
+    /* transform: scale(1.5); */
+}
+
+.feature-item:hover::after {
+    opacity: 1;
+    /* width: 100%; */
+    transform: scale(1);
+}
+
+
+/* .feature-item::before {
+    content: "";
+    width: 80px;
+    height: 1px;
+    background-color: aqua;
+
+    position: absolute;
+    right: 0;
+} */
+
+
+
+
+
+.process-item.template-item{
+    width: calc(100% / 3 - 5%);
+    background-color: #f7f7f7;
+    text-align: left;
+    line-height: 1.5;
+    padding: 60px 10px 30px 20px;
+    position: relative;
+
+    transition: .5s;
+    border-radius: 7px;
+}
+
+.process-item h3 {
+    color: #000;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.process-item p {
+    color: #777;
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.process-icon {
+    margin: 0 0 0 20px;
+    height: 80px;
+    width: 80px;
+    top: -40px;
+    transition: .5s;
+}
+
+
+.process-icon i {
+    font-size: 40px;
+}
+
+.process-item li {
+    color: #777;
+}
+
+.process-item li i {
+    color: #000;
+    margin-right: 10px;
+}
+
+.process-item.template-item:hover {
+    background-color: #6d70c6;
+}
+
+.process-item.template-item:hover h3, .process-item.template-item:hover p, .process-item.template-item:hover li, .process-item.template-item:hover i {
+    color: #fff;
+}
+
+
+.process-item.template-item:hover .process-icon{
+    background-color: #fff;
+}
+
+.process-item.template-item:hover .process-icon i{
+    color: #6d70c6;
+}
+
+
+.main-counter {
+    background-image: url('../../images/backgrounds/counter-bg.jpg');
+}
+
+
+.counter-item {
+    width: calc(100% / 4 - 3%);
+    color: #fff;
+    text-align: center;
+    line-height: 1.2;
+}
+
+.counter-item h3 {
+    font-size: 110px;
+    font-weight: bold;
+}
+
+.counter-item p {
+    font-size: 22px;
 }
