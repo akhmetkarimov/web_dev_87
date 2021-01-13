@@ -1,0 +1,49 @@
+@media (max-width: 1070px) {
+    .btn-row.wrap {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .btn {
+        margin-bottom: 40px;
+    }
+}
+
+@media (max-width: 960px) {
+    .header-nav {
+        display: none;
+    }
+    .mobile-bar.fas {
+        display: block;
+    }
+    .template-item, 
+    .template-item.service-item, 
+    .process-item.template-item, 
+    .counter-item, 
+    .team-item, 
+    .project-item{
+        width: calc(100% / 2 - 3%);
+    }
+    .main-services .wrap, .main-process .wrap {
+        justify-content: center;
+    }
+    .about-block {
+        width: 100%;
+    }
+    
+}
+
+@media (max-width: 560px) {
+    .template-item, 
+    .template-item.service-item, 
+    .process-item.template-item, 
+    .counter-item, 
+    .team-item, 
+    .project-item {
+        width: 100%;
+    }
+
+    .btn-row.wrap {
+        width: 100%;
+    }
+}

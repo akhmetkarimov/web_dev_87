@@ -154,3 +154,7 @@
 .dropdown:hover .dropdown-content{
     display: flex;
 }
+
+.mobile-bar.fas {
+    display: none;
+}
