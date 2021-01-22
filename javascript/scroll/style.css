@@ -1,0 +1,23 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+.header {
+    background-color: gray;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 5%;
+}
+
+.header.active {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: lightblue;
+}
+
+.space {
+    height: 3000px;
+}
