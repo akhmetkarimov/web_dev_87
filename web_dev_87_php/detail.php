@@ -41,6 +41,9 @@
                     $pid = $_GET['pid'];
                     $query = $db->query("SELECT * FROM post WHERE id = $pid");
                     $post = $query->fetch_object();
+                    if ($_SESSION['suser_id'] != $post->author_id) {
+                        $db->query("UPDATE post SET views = views + 1 WHERE id = $pid");
+                    }
                 ?>
                 <div class="row row-cols-1">
                         <div class="col">
@@ -56,10 +59,8 @@
                                     </p>
                                     <div class="d-flex justify-content-between align-items-center">
                                         <div class="btn-group">
-                                            <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                                            <!-- <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button> -->
                                         </div>
-                                        <small class="text-muted">9 mins</small>
+                                        <small class="text-muted"><i class="fas fa-eye" style="margin-right:4px;"></i><?=$post->views?></small>
                                     </div>
                                 </div>
                             </div>
