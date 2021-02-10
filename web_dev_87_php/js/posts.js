@@ -1,9 +1,14 @@
 let category_id = 0
-getPosts()
+let searchVal = ''
 
-function getPosts() {
+getPosts(searchVal)
+
+function getPosts(search) {
+    search = !search ? '' : search
+    // res = 10 % 2 == 0 ? 'even' : 'odd'
+
     $.ajax({
-        url: 'api/posts/get.php'
+        url: `api/posts/get.php?s=${search}`
     }).done(function(data) {
         data = JSON.parse(data)
         showPosts(data)
@@ -17,6 +22,8 @@ function showPosts(posts) {
     let output = ''
 
     for (const post of posts) {
+        post.rating = !post.rating ? '5' : post.rating
+
         if (category_id == post.category_id) {
             output += `
             <div class="col">
@@ -43,6 +50,8 @@ function showPosts(posts) {
                             <!-- <a type="button" class="btn btn-sm btn-outline-secondary">Edit</a> -->
                         </div>
                         <small class="text-muted"><i class="fas fa-eye" style="margin-right:4px;"></i>${post.views}</small>
+                        <small class="text-muted" style="margin-right:8px;"><i class="fas fa-comment" style="margin-right:8px;"></i>${post.rev_count}</small>
+                        <small class="text-muted" style="margin-right:8px;"><i class="fas fa-star" style="margin-right:8px;"></i>${Number(post.rating).toFixed(1)}</small>
                     </div>
                 </div>
             </div>
@@ -75,7 +84,8 @@ function showPosts(posts) {
                             <!-- <a type="button" class="btn btn-sm btn-outline-secondary">Edit</a> -->
                         </div>
                         <small class="text-muted"><i class="fas fa-eye" style="margin-right:4px;"></i>${post.views}</small>
-                    </div>
+                        <small class="text-muted" style="margin-right:8px;"><i class="fas fa-comment" style="margin-right:8px;"></i>${post.rev_count}</small>
+                        <small class="text-muted" style="margin-right:8px;"><i class="fas fa-star" style="margin-right:8px;"></i>${Number(post.rating).toFixed(1)}</small> </div>
                 </div>
             </div>
             </div>
@@ -120,7 +130,7 @@ function addPost(e) {
             title.value = ''
             description.value = ''
 
-            getPosts()
+            getPosts(searchVal)
         }
     })
 
@@ -159,5 +169,12 @@ function showCategories(categories) {
 
 function setCategory(id) {
     category_id = id
-    getPosts()
+    getPosts(searchVal)
+}
+
+function searchPosts(e) {
+    e.preventDefault()
+    const search = document.querySelector('#search')
+    searchVal = search.value
+    getPosts(search.value)
 }

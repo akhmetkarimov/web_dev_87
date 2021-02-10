@@ -23,13 +23,17 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
 
+
+
             <div class="collapse navbar-collapse justify-content-md-center" id="navbarsExample08">
                 <ul class="navbar-nav" id="all-categories">
 
                 </ul>
             </div>
         </nav>
-
+        <form onsubmit="searchPosts(event)" class="container mt-5">
+            <input class="form-control" type="search" id="search" placeholder="Search" aria-label="Search">
+        </form>
 
         <div class="album py-5 bg-light">
             <div class="container">
