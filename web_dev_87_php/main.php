@@ -39,6 +39,9 @@
             <div class="container">
                 <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3" id="all-posts">
                 </div>
+
+                <ul class="pagination pagination-lg mt-5 flex justify-content-center" id="all-pages">
+                </ul>
             </div>
         </div>
 

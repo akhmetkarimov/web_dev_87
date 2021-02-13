@@ -64,9 +64,6 @@
 </div>
 
 
-
-
-
 <!-- Add Modal -->
 <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
@@ -78,28 +75,35 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form method="POST" onsubmit="addPost(event)">
-                    <div class="form-group">
+                <form method="POST" onsubmit="addPost(event)" enctype="multipart/form-data">
+                    <div class="form-group mb-3">
                         <label for="exampleInputEmail1">Title</label>
                         <input type="text" name="title" class="form-control" id="addTitle" placeholder="Enter Title" required>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group mb-3">
                         <label for="exampleInputEmail1">Description</label>
                         <textarea name="description" class="form-control" id="addDescription" rows="3" required></textarea>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group mb-3">
                         <label for="exampleFormControlSelect1">Category</label>
                         <select class="form-control" id="addCategory" name="category">
                             <?php
                             $categories = $db->query("SELECT * FROM category;");
                             while ($row = $categories->fetch_object()) {
                             ?>
-                                <option value='<?=$row->id?>'><?=$row->category?></option>
+                                <option value='<?= $row->id ?>'><?= $row->category ?></option>
                             <?php
                             }
                             ?>
                         </select>
                     </div>
+
+                    <div class="form-group mb-3">
+                        <label for="exampleFormControlFile1" class="mb-3">Upload your Image</label>
+                        <input type="file" name="post-img" class="form-control-file" id="addImg">
+                    </div>
+
+
                     <input type="hidden" name="uid" value="<?= $_SESSION['suser_id'] ?>" id="addUser">
                     <button type="submit" class="btn btn-primary">Add New Post</button>
                 </form>

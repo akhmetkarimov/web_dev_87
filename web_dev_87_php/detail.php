@@ -39,7 +39,7 @@
             <div class="container">
                 <?php
                 $pid = $_GET['pid'];
-                $query = $db->query("SELECT post.id, post.title, post.description, post.views, AVG(review.mark) as rating, COUNT(review.id) as rev_count FROM post LEFT OUTER JOIN review ON post.id=review.post_id WHERE post.id=$pid GROUP BY post.id");
+                $query = $db->query("SELECT post.id, post.title, post.description, post.views, post.cover, AVG(review.mark) as rating, COUNT(review.id) as rev_count FROM post LEFT OUTER JOIN review ON post.id=review.post_id WHERE post.id=$pid GROUP BY post.id");
 
                 $queryCom = $db->query("SELECT * FROM review INNER JOIN account ON review.uid = account.id WHERE post_id=$pid");
 
@@ -47,16 +47,17 @@
                 if ($_SESSION['suser_id'] != $post->author_id) {
                     $db->query("UPDATE post SET views = views + 1 WHERE id = $pid");
                 }
+                $post->cover = !$post->cover ? 'images/template.png' : $post->cover;
+                
                 ?>
                 <div class="row row-cols-1">
                     <div class="col">
-                        <div class="card shadow-sm">
-                            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
-                                <title>Placeholder</title>
-                                <rect width="100%" height="100%" fill="#55595c" /><text x="50%" y="50%" fill="#eceeef" dy=".3em"> <?= $post->title; ?></text>
-                            </svg>
+                        <div class="card shadow-sm" >
+                            <img class="card-img-top" src="<?=$post->cover?>" alt="Card image cap" height="620" style="object-fit: cover;">
 
                             <div class="card-body">
+                                <h5 class="card-title"><?=$post->title?></h5>
+
                                 <p class="card-text">
                                     <?= $post->description; ?>
                                 </p>

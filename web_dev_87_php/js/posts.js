@@ -1,17 +1,21 @@
 let category_id = 0
 let searchVal = ''
+let page = 1
 
 getPosts(searchVal)
 
-function getPosts(search) {
+function getPosts(search, page) {
     search = !search ? '' : search
+    page = !page ? 1 : page
     // res = 10 % 2 == 0 ? 'even' : 'odd'
 
     $.ajax({
-        url: `api/posts/get.php?s=${search}`
+        url: `api/posts/get.php?s=${search}&page=${page}`
     }).done(function(data) {
         data = JSON.parse(data)
-        showPosts(data)
+        console.log(data)
+        setPages(data.totalPages)
+        showPosts(data.posts)
     })
 }
 
@@ -23,10 +27,11 @@ function showPosts(posts) {
 
     for (const post of posts) {
         post.rating = !post.rating ? '5' : post.rating
+        post.cover = !post.cover ? 'images/template.png' : post.cover
 
         if (category_id == post.category_id) {
             output += `
-            <div class="col">
+            <div class="col" onclick="window.location.href='detail.php?pid=${post.id}'" style="cursor: pointer">
             <div class="card shadow-sm">
                 <div class="card-header">
                     <ul class="nav nav-pills card-header-pills">
@@ -35,12 +40,10 @@ function showPosts(posts) {
                     </li>
                     </ul>
                 </div>
-                <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
-                    <title>Placeholder</title>
-                    <rect width="100%" height="100%" fill="#55595c" /><text x="50%" y="50%" fill="#eceeef" dy=".3em">${post.title}</text>
-                </svg>
-            
+                <img class="card-img-top" src="${post.cover}" alt="Card image cap"  height="320" style="object-fit: cover;">
+
                 <div class="card-body">
+                    <h5 class="card-title">${post.title}</h5>
                     <p class="card-text">
                      ${post.description.substring(0, 50)}...
                     </p>
@@ -60,7 +63,7 @@ function showPosts(posts) {
         }
         if (category_id == 0) {
             output += `
-            <div class="col">
+            <div class="col" onclick="window.location.href='detail.php?pid=${post.id}'" style="cursor: pointer">
                 <div class="card shadow-sm">
                 <div class="card-header">
                 <ul class="nav nav-pills card-header-pills">
@@ -69,12 +72,11 @@ function showPosts(posts) {
                 </li>
                 </ul>
             </div>
-                <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
-                    <title>Placeholder</title>
-                    <rect width="100%" height="100%" fill="#55595c" /><text x="50%" y="50%" fill="#eceeef" dy=".3em">${post.title}</text>
-                </svg>
+            <img class="card-img-top" src="${post.cover}" alt="Card image cap" height="320" style="object-fit: cover;">
             
                 <div class="card-body">
+                    <h5 class="card-title">${post.title}</h5>
+
                     <p class="card-text">
                      ${post.description.substring(0, 50)}...
                     </p>
@@ -106,17 +108,22 @@ function addPost(e) {
     const description = document.querySelector('#addDescription')
     const user = document.querySelector('#addUser')
     const category = document.querySelector('#addCategory')
+    const image = document.querySelector('#addImg')
 
+    const formData = new FormData()
+
+    formData.append('title', title.value)
+    formData.append('description', description.value)
+    formData.append('uid', user.value)
+    formData.append('category', category.value)
+    formData.append('post-img', image.files[0])
 
     $.ajax({
         url: 'api/posts/save.php',
         method: 'POST',
-        data: {
-            title: title.value,
-            description: description.value,
-            uid: user.value,
-            category: category.value
-        }
+        contentType: false,
+        processData: false,
+        data: formData
     }).done(function(data) {
         data = JSON.parse(data)
         if (data.success) {
@@ -177,4 +184,23 @@ function searchPosts(e) {
     const search = document.querySelector('#search')
     searchVal = search.value
     getPosts(search.value)
+}
+
+
+function setPages(pages) {
+    const all = document.querySelector('#all-pages')  
+    let output = ''  
+
+    for (let i = 1; i <= pages; i++) {
+        output += `<li class="page-item" onclick="showNext(${i})">
+                    <a class="page-link" href="#">${i}</a>
+                  </li>`
+    }
+
+    all.innerHTML = output
+}
+
+
+function showNext(page) {
+    getPosts(searchVal, page)
 }
