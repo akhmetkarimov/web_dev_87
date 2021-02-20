@@ -88,16 +88,8 @@
 
 .progress-line {
     background-color: #6d70c6;
-    width: 90%;
     height: 18px;
-}
-
-.ninety-five {
-    width: 95%;
-}
-
-.eigthy {
-    width: 80%;
+    width: 0;
 }
 
 .progresses {

@@ -1,0 +1,65 @@
+section {
+    overflow: hidden;
+}
+
+.show-block {
+    transform: translateX(-120%);
+    animation: show-translate .8s forwards;
+}
+
+.show-block.right {
+    transform: translateX(120%);
+    animation: show-translate .8s forwards;
+}
+
+.show-size {
+    transform: scale(0);
+    animation: show-scale .8s forwards;
+}
+
+@keyframes show-translate {
+    to {
+        transform: translateX(0);
+    }
+}
+
+@keyframes show-scale {
+    to {
+        transform: scale(1);
+    }
+}
+
+
+
+/* Progress */
+
+.ninety {
+    animation: ninety-prog .5s forwards;
+}
+
+.ninety-five {
+    animation: ninety-five-prog .5s forwards;
+}
+
+.eigthy {
+    animation: eigthy-prog .5s forwards;
+}
+
+
+@keyframes ninety-prog {
+    to {
+        width: 90%;
+    }
+}
+
+@keyframes ninety-five-prog {
+    to {
+        width: 95%;
+    }
+}
+
+@keyframes eigthy-prog {
+    to {
+        width: 80%;
+    }
+}
